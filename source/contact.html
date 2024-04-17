@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact </title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
+
+    <!-- css -->
+     <style>
+        body{
+                font-family: 'Days One', sans-serif;
+                background-color: rgb(134, 232, 243);
+                 
+            }
+            h1{
+                color: rgb(2, 42, 78);
+            }
+        a{
+            text-decoration: none;
+        }
+     </style>
+</head>
+<body>
+    <a href="/index.html"><h1>PAN INDIA PASS </h1></a> 
+    
+    <hr>
+    <h3>Fill your detail</h3>
+    <form action="#" id="my form">
+        <div>
+             <label for="my name">Name:</label>
+             <input type="text" name="my name" id="name" required>
+        </div>
+        <br>
+        
+       <div>
+            <label for="my email">Email:</label> 
+            <input type="email" name="my email" id="email" required > 
+       </div>
+    
+        <br>
+        <div>
+            <label for="ph number">Phone:</label>
+             <input type="number" name="ph number" id="phone" required>
+        </div>
+        <br>
+        <div>
+            <label for="artist name">Artist:</label>
+             <input type="text" name="artist name" id="artistName" required>
+        </div>
+        <br>
+        <div>
+            <label for="ph number">Budget:</label>
+             <input type="number" name="number"   id="budget" required>
+        </div>
+        <br>
+       
+        <!-- name wo naam jisse backend ussko pehchanega -->
+       <div>
+        <button type="submit" onclick="saveData()" value="submit now">  submit now</button>
+        <button type="reset" value="reset now">reset now</button>
+       </div>
+    </form>
+
+    <script>
+        function saveData(){
+            let name,email,phone;
+            name=document.getElementById("name").value
+            email=document.getElementById("email").value
+            phone=document.getElementById("phone").value
+            artistName=document.getElementById("artistName").value
+            budget=document.getElementById("budget").value
+            
+            localStorage.setItem("contact_name",name);
+            localStorage.setItem("contact_email",email);
+            localStorage.setItem("contact_phone",phone);
+            localStorage.setItem("contact_artist",artistName);
+            localStorage.setItem("contact_budget",budget);
+
+            alert("submit succesfully");
+            
+            document.getElementById("my form").reset();
+
+
+
+
+
+        }
+    </script>
+
+        
+</body>
+</html>
