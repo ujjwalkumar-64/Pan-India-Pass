@@ -41,12 +41,20 @@ app.use(express.static('source'));
 app.post('/sign_up', async (req, res) => {
     try {
         const { name, username, email, password } = req.body;
+        
+        const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+
+        if (existingUser) {
+            return res.status(400).json({ error: 'Email or username already exists' });
+        }
+        
         const newUser = new User({ name, username, email, password });
+        
         await newUser.save();
-        res.send('User registered successfully!');
+        res.status(200).json({ message: 'User registered successfully!' });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Server Error');
+        res.status(500).json({ error: 'Server Error' });
     }
 });
 

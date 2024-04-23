@@ -335,6 +335,9 @@
                             body: JSON.stringify({ name, username, email, password })
                         });
 
+                        const responseData = await response.json();
+
+
                         if (response.ok) {
                             
                             console.log('User registered successfully!');
@@ -343,6 +346,13 @@
 
                         } else {
                             console.error('Signup failed:', response.statusText);
+
+                            if (responseData.error) {
+                            alert(responseData.error);
+                        } else {
+                            alert('Email or username is already registered. Please choose another one.');
+                        }
+                            
                         }
                     } catch (error) {
                         console.error('Error during signup:', error.message);
