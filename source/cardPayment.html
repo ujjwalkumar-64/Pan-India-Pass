@@ -106,12 +106,12 @@
         paymentForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            // Get payment details from the form
+            
             const cardNumber = document.getElementById('card-number').value;
             const expiryDate = document.getElementById('expiry-date').value;
             const cvv = document.getElementById('cvv').value;
 
-            // Perform validation on payment details
+       
             const cardNumberError = document.getElementById('card-number-error');
             const expiryDateError = document.getElementById('expiry-date-error');
             const cvvError = document.getElementById('cvv-error');
@@ -139,11 +139,10 @@
                 cvvError.textContent = '';
             }
 
-            // If validation passes, process payment
+             
             if (isValid) {
-                // Perform payment processing and redirect user to confirmation page
-                // Example: window.location.href = 'payment-confirmation.html';
-                alert('Payment successful! ');
+                 
+                 alert('Payment successful! ');
             }
         });
     </script>

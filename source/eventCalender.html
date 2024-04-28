@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PanIndia Pass - Event Calendar</title>
 
-    <!-- font -->
+     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
 
-    <!-- css -->
+     
      <style>
         body{
                 font-family: 'Days One', sans-serif;
@@ -21,7 +21,7 @@
                 text-align: center;
             }
 
-        /* CSS styles for calendar */
+        
         .calendar {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
@@ -44,7 +44,7 @@
         }
      </style>
 </head>
- <!-- Event Calendar -->
+  
  <section id="calendar">
     <h1>Event Calendar</h1>
 
@@ -54,15 +54,15 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Array of events (Example data, replace it with your actual event data)
+      
         const events = [
             { date: '2024-04-01', title: 'Concert: Arjit Singh' },
             { date: '2024-04-10', title: 'Comedy Show: Anubhav Bassi' },
             { date: '2024-04-15', title: 'Music Festival: Dj Ravator' },
-            // Add more events as needed
+             
         ];
 
-        // Function to render the event calendar
+         
         function renderCalendar() {
             const calendar = document.querySelector('.calendar');
             const today = new Date();
@@ -71,15 +71,15 @@
             const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
             const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-            // Clear previous calendar
+            
             calendar.innerHTML = '';
 
-            // Create header row
+           
             const headerRow = document.createElement('div');
             headerRow.classList.add('day');
             headerRow.textContent = 'Sun';
             calendar.appendChild(headerRow);
-            // Add other days of the week
+             
             for (let i = 1; i < 7; i++) {
                 const day = document.createElement('div');
                 day.classList.add('day');
@@ -87,7 +87,7 @@
                 calendar.appendChild(day);
             }
 
-            // Create calendar grid
+             
             for (let i = 0; i < firstDayOfMonth; i++) {
                 const emptyDay = document.createElement('div');
                 emptyDay.classList.add('day');
@@ -100,13 +100,13 @@
                 day.textContent = i;
                 calendar.appendChild(day);
 
-                // Check if there are events on this date
+               
                 const eventOfDay = events.find(event => {
                     const eventDate = new Date(event.date);
                     return eventDate.getDate() === i && eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear;
                 });
 
-                // If there are events, display them
+               
                 if (eventOfDay) {
                     const eventElement = document.createElement('div');
                     eventElement.classList.add('event');
@@ -116,7 +116,7 @@
             }
         }
 
-        // Render the calendar when the page loads
+         
         renderCalendar();
     });
 </script>
